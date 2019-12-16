@@ -49,16 +49,16 @@ function download_node() {
   #rm $COIN_ZIP >/dev/null 2>&1
   cd /root/ >/dev/null 2>&1
 
-wget -c https://github.com/Galilel-Project/galilel/releases/download/v3.3.0/galilel-v3.3.0-lin64.tar.gz >/dev/null 2>&1
+wget -c https://github.com/Galilel-Project/galilel/releases/download/v3.4.0/galilel-v3.4.0-lin64.tar.gz >/dev/null 2>&1
   compile_error
-  tar -xvzf galilel-v3.3.0-lin64.tar.gz >/dev/null 2>&1
+  tar -xvzf galilel-v3.4.0-lin64.tar.gz >/dev/null 2>&1
 
-cd /root/galilel-v3.3.0-lin64/usr/bin/ >/dev/null 2>&1
+cd /root/galilel-v3.4.0-lin64/usr/bin/ >/dev/null 2>&1
 chmod +x $COIN_DAEMON $COIN_CLI >/dev/null 2>&1
 
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH
   cd - >/dev/null 2>&1
-  rm -R galilel-v3.3.0-lin64* >/dev/null 2>&1
+  rm -R galilel-v3.4.0-lin64* >/dev/null 2>&1
   clear
 }
 
@@ -212,7 +212,7 @@ fi
 
 
 function checks() {
-if [[ $(lsb_release -d) != *16.04* ]]; then
+if [[ $(lsb_release -d) >= *16.04* ]]; then
   echo -e "${RED}You are not running Ubuntu 16.04. Installation is cancelled.${NC}"
   exit 1
 fi
